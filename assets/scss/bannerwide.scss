@@ -1,0 +1,174 @@
+.gdpr-bannerwide {
+    /**
+     * Banner parameters
+     */
+    --toggle-size: 20px;
+    --color-background: theme('colors.blue.200');
+    --color-border: theme('colors.blue.500');
+    --color-accent: theme('colors.blue.700');
+    --toggle-speed: 0.25s;
+
+    @screen md {
+        --toggle-size: 22px;
+    }
+    @screen lg {
+        --toggle-size: 24px;
+    }
+    @screen xl {
+        --toggle-size: 28px;
+    }
+
+
+    @apply fixed inset-0 flex items-center justify-center bg-gray-200/50 z-[1040];
+
+    &__wrapper { 
+        @apply relative grid gap-6 max-w-[90%] lg:max-w-[75%] xl:max-w-[60%] mx-auto my-auto px-4 py-8 rounded-md bg-white shadow-xl;
+
+        &--bgCookie {
+            &:before {
+                @apply absolute content-['_'] w-[140px] h-[140px] opacity-40;
+                @apply bg-cookie bg-[length:100px] bg-no-repeat bg-[left_-0.5rem_top_-1rem];
+            }
+
+            .gdpr-bannerwide__title {
+                @apply pl-[100px];
+            }
+        }
+
+        // blue is not included as it's the default color
+        $colors: 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose';
+
+        @each $color in $colors {
+            &--#{$color} {
+                --color-background: theme('colors.#{$color}.200');
+                --color-border: theme('colors.#{$color}.500');
+                --color-accent: theme('colors.#{$color}.900');
+            }
+        }
+    }
+
+    &__title {
+        @apply text-lg md:text-xl xl:text-2xl font-bold;
+    }
+    &__message {
+        @apply text-sm md:text-base xl:text-lg;
+    }
+
+    &__cookie-groups {
+        @apply flex flex-col divide-y sm:flex-row sm:divide-x sm:divide-y-0;
+    }
+
+    &__cookie-group {
+        @apply flex flex-col items-center p-2 lg:p-4 grow;
+
+        &-cookies {
+            @apply w-full sm:mt-4 sm:w-auto text-gray-500 text-xs lg:text-sm line-clamp-3;
+        }
+    }
+
+    &__toggle {
+        --highContrastModeSupport: solid 2px transparent;
+
+        --track-height: calc(var(--toggle-size) + 6px);
+        --track-width: calc(var(--toggle-size) * 2.5);
+
+        @apply flex w-full sm:flex-col items-center justify-between text-lg xl:text-xl font-bold;
+    	border-radius: 100px;
+
+        // Since we can't style the checkbox directly, we "hide" it so we can draw the toggle.
+        &-checkbox {
+            @apply sr-only;
+
+            // This style sets the focus ring. 
+            // The ":not([disabled])" prevents the focus ring from creating a flash when the element is clicked.
+            &:not([disabled]):active + .gdpr-bannerwide__toggle-track,
+            &:not([disabled]):focus + .gdpr-bannerwide__toggle-track {
+                @apply border-transparent border border-solid;
+                box-shadow: 0px 0px 0px 2px var(--color-accent);
+            }
+
+            &:disabled + .gdpr-bannerwide__toggle-track {
+                @apply cursor-not-allowed opacity-70;
+            }
+
+            &:checked + .gdpr-bannerwide__toggle-track .gdpr-bannerwide__toggle-indicator {
+                background: var(--color-accent);
+                transform: translateX(calc(var(--track-width) - var(--track-height)));
+
+                .checkmark {
+                    opacity: 1;
+                    transition: opacity var(--toggle-speed) ease-in-out;
+                }
+            }
+        }
+
+        &-track {
+            @apply relative cursor-pointer flex mt-3 w-[var(--track-width)] h-[var(--track-height)] bg-[var(--color-background)] border border-solid border-[var(--color-border)];
+            border-radius: 100px;
+        }
+
+        &-indicator {
+            @apply absolute w-[var(--toggle-size)] h-[var(--toggle-size)] bg-[var(--color-accent)] flex items-center justify-center bottom-0.5 left-0.5;
+            border-radius: var(--toggle-size);
+            outline: var(--highContrastModeSupport);
+            transition: var(--toggle-speed);
+        }
+    
+        // The check mark is optional
+        .checkmark {
+            fill: #fff;
+            opacity: 0;
+            width: calc(var(--toggle-size) - 4px);
+            height: calc(var(--toggle-size) - 4px);
+            transition: opacity var(--toggle-speed) ease-in-out;
+        }
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+    	.toggle-track {
+    		border-radius: 0;
+    	}
+    }
+
+    &__footer {
+        @apply grid grid-cols-2 gap-6 md:grid-cols-6 lg:gap-4;
+    }
+
+    &__settings {
+        @apply col-span-full;
+        a {
+            @apply underline text-xs lg:text-base;
+        }
+    }
+
+    &__opt {
+        &-out,
+        &-selection,
+        &-in {
+            button {
+                @apply px-2 py-1 cursor-pointer rounded-sm;
+            }
+        }
+        &-out {
+            button {
+                @apply border text-[var(--color-accent)] bg-white border-[var(--color-border)]
+            }
+        }
+        &-selection {
+            @apply place-self-end;
+            @apply md:col-span-2 md:col-start-3;
+
+            button {
+                @apply border text-[var(--color-accent)] bg-[var(--color-background)] border-[var(--color-border)];
+            }
+        }
+        &-in {
+            @apply row-start-1 col-span-2 md:row-start-auto;
+
+            button {
+                @apply border text-[var(--color-background)] bg-[var(--color-accent)] border-[var(--color-border)];
+                @apply w-full;
+            }
+        }
+    }
+}

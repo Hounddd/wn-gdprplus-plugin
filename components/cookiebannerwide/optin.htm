@@ -1,0 +1,12 @@
+<div class="gdpr-bannerwide__opt-in">
+    <button role="button" 
+            tabindex="0" 
+            aria-pressed="false"
+            class="gdpr-bannerwide__button gdpr-bannerwide__button--opt-in"
+            data-request="onAccept"
+            data-request-success="$('.gdpr-bannerwide').remove()"
+            data-request-update="'{{ __SELF__.updatePartial }}' : '{{ __SELF__.updateSelector }}'"
+    >
+        {{ 'hounddd.gdprplus::lang.components.bannerwide.buttons.accept_all' | trans }}
+    </button>
+</div>

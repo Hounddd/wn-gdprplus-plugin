@@ -1,0 +1,23 @@
+{% if not __SELF__.hide %}
+    {% set bgCookie = __SELF__.bgCookies? 'bgCookie' : '' %}
+    {% set colorScheme = __SELF__.colorScheme != 'blue' ? __SELF__.colorScheme : '' %}
+    {% set extraCss = (bgCookie ~' '~ colorScheme) %}
+    <div class="gdpr-bannerwide">
+        <form class="gdpr-bannerwide__wrapper {{ extraCss }}"
+            data-request="onSubmit"
+            data-request-success="document.querySelector(\'.gdpr-bannerwide\').remove();"
+            data-request-update="'{{ __SELF__.updatePartial }}' : '{{ __SELF__.updateSelector }}'"
+        >
+            {% partial __SELF__ ~ '::title' %}
+            {% partial __SELF__ ~ '::message' %}
+            {% partial __SELF__ ~ '::cookiegroups' %}
+
+            <div class="gdpr-bannerwide__footer">
+                {% partial __SELF__ ~ '::optout' %}
+                {% partial __SELF__ ~ '::optselection' %}
+                {% partial __SELF__ ~ '::optin' %}
+                {% partial __SELF__ ~ '::settings' %}
+            </div>
+        </form>
+    </div>
+{% endif %}
