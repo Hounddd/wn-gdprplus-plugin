@@ -4,6 +4,7 @@
     "description": "Additional features for OFFLINE.Gdpr plugin",
     "homepage": "https://gitlab.com/hounddd/wn-gdprplus-plugin",
     "keywords": ["winter cms", "winter", "plugin", "gdpr", "wide", "banner"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Hounddd - Damien MATHIEU",
