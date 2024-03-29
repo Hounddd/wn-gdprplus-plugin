@@ -1,0 +1,21 @@
+{
+    "name": "hounddd/wn-gdprplus-plugin",
+    "type": "winter-plugin",
+    "description": "Additional features for OFFLINE.Gdpr plugin",
+    "homepage": "https://gitlab.com/hounddd/wn-gdprplus-plugin",
+    "keywords": ["winter cms", "winter", "plugin", "gdpr", "wide", "banner"],
+    "authors": [
+        {
+            "name": "Hounddd - Damien MATHIEU",
+            "email": "damien@hounddd.fr",
+            "role": "Original Author"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "offline/oc-gdpr-plugin": "^2.2"
+    },
+    "extra": {
+        "installer-name": "gdprplus"
+    }
+}
