@@ -8,7 +8,7 @@ This plugin adds additional features for managing personal data to the [OFFLINE.
 ## Wide banner
 
 A new component is available to replace the simple banner provided by the original plugin.  
-It can be implemented by simply replacing the name of the `cookieBanner` component in your layout with `cookieBannerWide`. : 
+It can be implemented by just substituting the name of the `cookieBanner` component in your layout with `cookieBannerWide`: 
 
 ```twig
 ...
@@ -20,16 +20,16 @@ It can be implemented by simply replacing the name of the `cookieBanner` compone
 ...
 ``` 
 
-#### **`cookieBannerWide` component additionals and optionnals properties**
+#### Additional and optional properties of the `cookieBannerWide` component**
 
 The component offers two new (optionals) properties that allow you to configure its appearance.
 
 | Property         | Type    | Description                                                    |
 | ---------------- | ------- | -------------------------------------------------------------- |
-| `bg_cookie`      | Boolean | Show or not a cookie background in the bannner (default off)   |
+| `bg_cookie`      | Boolean | Show or not a cookie background in the banner (default off)    |
 | `color_scheme`   | String  | The color scheme to use for toggles and buttons (default blue) |
 
-The availabe color schemes are : blue (default), red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, indigo, violet, purple, fuchsia, pink and rose.
+The available color schemes are blue (default), red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, indigo, violet, purple, fuchsia, pink and rose.
 
 #### Colors schemes
 
@@ -39,7 +39,7 @@ The availabe color schemes are : blue (default), red, orange, amber, yellow, lim
 
 #### Appearance
 
-If you wish, you can define your own color scheme by defining the following css variables in a `.gdpr-bannerwide` selector:
+If you wish, you can define your own color scheme by specifying the following css variables in a `.gdpr-bannerwide` selector:
 
 ```css
 .gdpr-bannerwide {
@@ -59,7 +59,7 @@ The default size is 20px on smartphones, 22px on small screens, 24px on medium s
 
 #### Texts
 
-You can replace the basic messages by defining a translation file in your site `./lang/en/hounddd/gdprplus/lang.php`:
+You can replace the basic title and message by defining a translation file in your site `./lang/en/hounddd/gdprplus/lang.php`:
 
 ```php
 <?php  
@@ -77,7 +77,7 @@ return [
 ---
 
 ## Installation
-*Let assume you're in the root of your wintercms installation*
+*Let assume you're in the root of your wintercms installation.*
 
 ### Using composer
 Just run this command
@@ -86,7 +86,7 @@ composer require hounddd/wn-gdprplus-plugin
 ```
 
 ### Clone
-Clone this repo into your winter plugins folder.
+Clone this repository into your winter plugins folder.
 
 ```bash
 cd plugins
@@ -95,4 +95,4 @@ git clone https://github.com/Hounddd/wn-gdprplus-plugin gdprplus
 ```
 
 ***
-Make awesome sites with ❄ [WinterCMS](https://wintercms.com) !
+Make awesome sites with ❄ [WinterCMS](https://wintercms.com)!
