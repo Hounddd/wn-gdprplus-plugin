@@ -1,6 +1,6 @@
 {% if not __SELF__.hide %}
-    {% set bgCookie = __SELF__.bgCookies? 'bgCookie' : '' %}
-    {% set colorScheme = __SELF__.colorScheme != 'blue' ? __SELF__.colorScheme : '' %}
+    {% set bgCookie = __SELF__.bgCookies? 'gdpr-bannerwide__wrapper--bgCookie' : '' %}
+    {% set colorScheme = __SELF__.colorScheme != 'blue' ? ('gdpr-bannerwide__wrapper--'~ __SELF__.colorScheme) : '' %}
     {% set extraCss = (bgCookie ~' '~ colorScheme) %}
     <div class="gdpr-bannerwide">
         <form class="gdpr-bannerwide__wrapper {{ extraCss }}"
