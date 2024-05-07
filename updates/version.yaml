@@ -1,7 +1,9 @@
-'1.0.0':
-    - 'First version of GdprPlus'
-    - 'Add a wide banner to the OFFLINE.Gdpr plugin'
-'1.0.1':
-    - 'Fix css selector in CookierBannerWide component'
-'1.0.2':
-    - 'Fix Opt Out button partial css selector'
+"1.0.0":
+    - "First version of GdprPlus"
+    - "Add a wide banner to the OFFLINE.Gdpr plugin"
+"1.0.1":
+    - "Fix css selector in CookierBannerWide component"
+"1.0.2":
+    - "Fix Opt Out button partial css selector"
+"1.0.3":
+    - "Fix banner visibility on small screens"

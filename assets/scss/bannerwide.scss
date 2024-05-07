@@ -22,7 +22,7 @@
     @apply fixed inset-0 flex items-center justify-center bg-gray-200/50 z-[1040];
 
     &__wrapper { 
-        @apply relative grid gap-6 max-w-[90%] lg:max-w-[75%] xl:max-w-[60%] mx-auto my-auto px-4 py-8 rounded-md bg-white shadow-xl;
+        @apply relative grid gap-6 max-w-[90%] lg:max-w-[75%] xl:max-w-[60%] max-h-screen mx-auto my-auto px-4 py-8 rounded-md bg-white shadow-xl overflow-y-auto;
 
         &--bgCookie {
             &:before {
@@ -44,6 +44,10 @@
                 --color-border: theme('colors.#{$color}.500');
                 --color-accent: theme('colors.#{$color}.900');
             }
+        }
+
+        :root:has(&) {
+            @apply overflow-hidden;
         }
     }
 
@@ -131,7 +135,7 @@
     }
 
     &__footer {
-        @apply grid grid-cols-2 gap-6 md:grid-cols-6 lg:gap-4;
+        @apply grid sm:grid-cols-2 gap-6 md:grid-cols-6 lg:gap-4;
     }
 
     &__settings {
@@ -150,20 +154,22 @@
             }
         }
         &-out {
+            @apply place-self-end md:place-self-auto;
             button {
                 @apply border text-[var(--color-accent)] bg-white border-[var(--color-border)]
             }
         }
         &-selection {
-            @apply place-self-end;
-            @apply md:col-span-2 md:col-start-3;
+            @apply md:place-self-end;
+            @apply row-start-2 md:row-start-auto md:col-span-2 md:col-start-3;
 
             button {
                 @apply border text-[var(--color-accent)] bg-[var(--color-background)] border-[var(--color-border)];
+                @apply w-full md:w-auto;
             }
         }
         &-in {
-            @apply row-start-1 col-span-2 md:row-start-auto;
+            @apply row-start-1 sm:col-span-2 md:row-start-auto;
 
             button {
                 @apply border text-[var(--color-background)] bg-[var(--color-accent)] border-[var(--color-border)];
