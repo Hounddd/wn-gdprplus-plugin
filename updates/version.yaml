@@ -7,3 +7,5 @@
     - "Fix Opt Out button partial css selector"
 "1.0.3":
     - "Fix banner visibility on small screens"
+"1.0.4":
+    - "Appease the W3C test"
